@@ -5,8 +5,9 @@ const PORT = 4500;
 const routes = require("./routes");
 const cors = require('cors');
 
+const allowedOrigin = (process.env.FRONTEND_URL || 'http://localhost:3000').replace(/\/$/, '');
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: allowedOrigin,
   credentials: true
 }));
 
