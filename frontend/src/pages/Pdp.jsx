@@ -34,6 +34,8 @@ const Pdp = () => {
 
   const isInWishlist = wishlistItems.some((item) => item.id === product?.id);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     if (toast.show) {
       const timer = setTimeout(() => {
@@ -47,7 +49,7 @@ const Pdp = () => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/products?id=${id}`);
+        const response = await fetch(`${API_URL}/api/products?id=${id}`);
         const data = await response.json();
         if (!data) {
           setTimeout(() => {
@@ -66,7 +68,7 @@ const Pdp = () => {
     };
 
     fetchProducts();
-  }, [id]);
+  }, [id, API_URL]);
 
   const handleQtyChange = (delta) => {
     setQty((prev) => Math.max(1, prev + delta));

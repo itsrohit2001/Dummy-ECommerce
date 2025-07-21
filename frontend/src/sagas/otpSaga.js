@@ -8,9 +8,11 @@ import {
 // Worker saga
 function* requestOtp(action) {
     console.log("Saga requestOtp triggered", action);
+
+    const API_URL = process.env.REACT_APP_API_URL;
   yield put(requestOtpStart());
   try {
-    const res = yield call(fetch, "/api/user/request-otp", {
+    const res = yield call(fetch, `${API_URL}/api/user/request-otp`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(action.payload),

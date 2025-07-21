@@ -30,6 +30,8 @@ const Header = () => {
   const location = useLocation();
   const [user, setUser] = useState(null);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -39,7 +41,7 @@ const Header = () => {
           return;
         }
 
-        const res = await fetch("/api/user/me", {
+        const res = await fetch(`${API_URL}/api/user/me`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
@@ -54,7 +56,7 @@ const Header = () => {
       }
     };
     fetchUser();
-  }, [location.pathname]);
+  }, [location.pathname, API_URL]);
 
   // Hide search modal on route change
   useEffect(() => {

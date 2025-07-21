@@ -6,9 +6,11 @@ import {
 } from "../slices/registerSlice";
 
 function* registerUser(action) {
+
+  const API_URL = process.env.REACT_APP_API_URL;
   yield put(registerStart());
   try {
-    const res = yield call(fetch, "/api/user/register", {
+    const res = yield call(fetch, `${API_URL}/api/user/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(action.payload),

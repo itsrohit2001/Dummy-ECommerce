@@ -31,11 +31,12 @@ const CheckoutPage = () => {
   const [resendTimer, setResendTimer] = useState(0);
   const [otpSent, setOtpSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false); // Loader state
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("/api/user/me", {
+        const res = await fetch(`${API_URL}/api/user/me`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
@@ -49,7 +50,7 @@ const CheckoutPage = () => {
       }
     };
     fetchUser();
-  }, []);
+  }, [API_URL]);
 
   useEffect(() => {
     let timer;

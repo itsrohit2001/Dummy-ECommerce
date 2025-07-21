@@ -6,9 +6,10 @@ import {
 } from "../slices/verifyOtpSlice";
 
 function* verifyOtp(action) {
+  const API_URL = process.env.REACT_APP_API_URL;
   yield put(verifyOtpStart());
   try {
-    const res = yield call(fetch, "/api/user/verify-otp", {
+    const res = yield call(fetch, `${API_URL}/api/user/verify-otp`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(action.payload),

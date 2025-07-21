@@ -8,6 +8,8 @@ const CreateNewPassword = () => {
   const email = params.get("email");
   const otp = params.get("otp");
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -32,7 +34,7 @@ const CreateNewPassword = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/user/reset-password", {
+      const res = await fetch(`${API_URL}/api/user/reset-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp, password }),

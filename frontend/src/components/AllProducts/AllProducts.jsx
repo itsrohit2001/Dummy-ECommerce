@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 const categories = ["All", "Mobiles", "Laptops"];
 const brands = ["All", "Pixel", "Android", "Lenovo", "One plus", "Asus"];
 const LIMIT_PER_PAGE = 6;
+const API_URL = process.env.REACT_APP_API_URL;
 
 const AllProducts = () => {
   const location = useLocation();
@@ -30,7 +31,7 @@ const AllProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch(
-        `/api/products?skip=${
+        `${API_URL}/api/products?skip=${
           (currentPage - 1) * LIMIT_PER_PAGE
         }&limit=${LIMIT_PER_PAGE}&search=${urlSearch}&category=${urlCategory}&brand=${urlBrand}`
       );

@@ -4,9 +4,10 @@ import { loginStart, loginSuccess, loginFailure } from "../slices/loginSlice";
 function* loginUser(action) {
   let email = (action.payload.email || "").trim().toLowerCase();
   let password = action.payload.password || "";
+  const API_URL = process.env.REACT_APP_API_URL;
   yield put(loginStart());
   try {
-    const res = yield call(fetch, "/api/user/login", {
+    const res = yield call(fetch, `${API_URL}/api/user/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

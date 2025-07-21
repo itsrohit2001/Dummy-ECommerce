@@ -8,6 +8,8 @@ const ForgotPassword = () => {
   const [otpLoading, setOtpLoading] = useState(false);
   const [toast, setToast] = useState({ message: "", success: false });
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -18,7 +20,7 @@ const ForgotPassword = () => {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
-      const res = await fetch("/api/user/forgot-password", {
+      const res = await fetch(`${API_URL}/api/user/forgot-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -50,7 +52,7 @@ const ForgotPassword = () => {
     setOtpLoading(true);
     setToast({ message: "", success: false });
     try {
-      const res = await fetch("/api/user/verify-otp", {
+      const res = await fetch(`${API_URL}/api/user/verify-otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp,  deleteOtp: false }),

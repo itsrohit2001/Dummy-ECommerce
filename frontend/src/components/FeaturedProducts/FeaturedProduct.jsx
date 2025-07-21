@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 
 export const FeaturedProduct = () => {
   const [products, setProducts] = React.useState([]);
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`/api/products/popular?count=5`);
+        const response = await fetch(`${API_URL}/api/products/popular?count=5`);
         const data = await response.json();
         setProducts(data);
         console.log("Products fetched successfully:", data);
@@ -18,7 +19,7 @@ export const FeaturedProduct = () => {
     };
 
     fetchProducts();
-  }, []);
+  }, [API_URL]);
 
   useEffect(() => {
     window.scrollTo({

@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 const UserPage = () => {
   const [user, setUser] = useState(null);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     // Fetch user details from backend
     const fetchUser = async () => {
       try {
-        const res = await fetch("/api/user/me", {
+        const res = await fetch(`${API_URL}/api/user/me`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           },
@@ -21,7 +23,7 @@ const UserPage = () => {
       }
     };
     fetchUser();
-  }, []);
+  }, [API_URL]);
 
   if (!user) {
     return (
