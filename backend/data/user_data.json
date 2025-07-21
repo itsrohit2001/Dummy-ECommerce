@@ -1,0 +1,122 @@
+[
+  {
+    "name": "rohit kr",
+    "email": "rk.dtg2050@gmail.com",
+    "password": "$2b$10$EaYz47rXpfWCHWeZq/l83usIGc6l0X83Rj6zlidFUNWJ16Iv1mORq",
+    "isAdmin": true,
+    "isVerified": true,
+    "isBlocked": false,
+    "profileUrl": "https://res.cloudinary.com/dtq5xj0zj/image/upload/v1698858702/rohit_kr.jpg",
+    "resetToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJrLmR0ZzIwNTBAZ21haWwuY29tIiwibmFtZSI6InJvaGl0IGtyIiwicmVzZXRUb2tlbiI6dHJ1ZSwicHVycG9zZSI6InBhc3N3b3JkX3Jlc2V0IiwiaWF0IjoxNzUwNzg0OTc1LCJleHAiOjE3NTA3ODg1NzV9.z3A7D48b9SqzrW7L4CXddHhM4HZThZtBsWML4T24Oiw",
+    "resetTokenExpiry": 1750788575024
+  },
+  {
+    "name": "MukeshMB",
+    "email": "mukesh1024mb@gmail.com",
+    "password": "$2b$10$QKmfizwM61Ma0cqezO.KRuhjBa8xTyYdxTpWEZ9YeFk2yyPb8JTMW"
+  },
+  {
+    "name": "Arashpardeep Singh",
+    "email": "singharash571@gmail.com",
+    "password": "$2b$10$tUizQdh77AMLnAfxyfh.oOsAezCWSLnmNnMx2HhyD8yGthu7IYJ0e"
+  },
+  {
+    "name": "iamrohit",
+    "email": "itsrohit.rk0612@gmail.com",
+    "password": "$2b$10$fv6ZTxRFbJDsEYgtrqlrDOtkjOqpdCjIv58ViuuDNOdEibGnLEgLG"
+  },
+  {
+    "name": "krishna kanhaiya",
+    "email": "krishnakanhaiya4471@gmail.com",
+    "password": "$2b$10$yDjYWTHNsui2peckgoJHv.KnVtGYx6SqptO.1PxXLIL7jrhFnWf3y"
+  },
+  {
+    "name": "rohit kr",
+    "email": "iamrk.dtg2001@gmail.com",
+    "password": "$2b$10$c2lUz9QDRLxmYUCkK08AF.nKYGjbDXZ3x4Lcdfv9O4Ww4bW4zc0De",
+    "resetToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlhbXJrLmR0ZzIwMDFAZ21haWwuY29tIiwibmFtZSI6InJvaGl0IGtyIiwicmVzZXRUb2tlbiI6dHJ1ZSwicHVycG9zZSI6InBhc3N3b3JkX3Jlc2V0IiwiaWF0IjoxNzUwNjg5MDAyLCJleHAiOjE3NTA2OTI2MDJ9.EC_UTHZWDNutErNvlQkHJ1sQT8L555TAq7Kt40WFJTY",
+    "resetTokenExpiry": 1750692602592
+  },
+  {
+    "name": "pi senah",
+    "email": "pisenah260@exitbit.com",
+    "password": "$2b$10$2Ct2XhvhU2QLVo9V8f6jSO8D9/wk0F0KIdHcH/5kjZq/a3AJGKA1i",
+    "resetToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBpc2VuYWgyNjBAZXhpdGJpdC5jb20iLCJuYW1lIjoicGkgc2VuYWgiLCJyZXNldFRva2VuIjp0cnVlLCJwdXJwb3NlIjoicGFzc3dvcmRfcmVzZXQiLCJpYXQiOjE3NTA4MzkxNjAsImV4cCI6MTc1MDg0Mjc2MH0.S3bFU86Lc2OlPC7ThOEc5jzykUTWpsxQgFP2N5KNWgc",
+    "resetTokenExpiry": 1750842760024
+  },
+  {
+    "name": "so tabah",
+    "email": "sotabah249@iridales.com",
+    "password": "$2b$10$wIzBVc9VRgw.mq7vi9iMjOHFD/QA60F0jwvwKOLroCg0Qau8M6E9u"
+  },
+  {
+    "name": "ro neh",
+    "email": "ronehe1146@iridales.com",
+    "password": "$2b$10$azVvBOvw30RY2mTNbp7.3emmH9SkFCp96CyklRFSvd4HkwtOMBCoO"
+  },
+  {
+    "name": "ji vin",
+    "email": "jivin36499@fenexy.com",
+    "password": "$2b$10$7ygM7e8XV0L0YnrKeOL1CO0KiFnewrLFzB00gqKIdbBSHfNKvDnWi"
+  },
+  {
+    "name": "wo liew",
+    "email": "woliw83162@dxirl.com",
+    "password": "$2b$10$/VDqpsevxAyZb418tu/TIu4I/6O7ACXaIZz52s.m2bfko94j76pAu"
+  },
+  {
+    "name": "so wol",
+    "email": "sowol78322@fenexy.com",
+    "password": "$2b$10$0zs1EOXStZMgDUu2IFkKkOCmf9wy6npJBx2FP4huEK/OrWFfcT8X."
+  },
+  {
+    "name": "ge eeve",
+    "email": "geveve4203@dxirl.com",
+    "password": "$2b$10$TlJKYtFuEA/qtQ.K4XcvHeY/WKM4HUk8ZxxtTEbAiVLI45hXier/a"
+  },
+  {
+    "name": "yi pero",
+    "email": "yipero9197@fenexy.com",
+    "password": "$2b$10$XBJC6BBNIXw5idTvoWSvbewOQklfLqVDpUErcvKt.TuuTFuOk/Dt2"
+  },
+  {
+    "name": "bek lol",
+    "email": "bekilol579@lhory.com",
+    "password": "$2b$10$Zz0vcIMPmK1x14hl.tPGh.gAjHNVe/vhVekqORlPrKxVjg7gZ7OZy"
+  },
+  {
+    "name": "nove ca",
+    "email": "noveca6870@lhory.com",
+    "password": "$2b$10$/dTR85T7d43voj9hIAOC9Oc.T83J8eQwOYeKgGRcEloFDDCadHc9C"
+  },
+  {
+    "name": "vo tek",
+    "email": "votek24237@lhory.com",
+    "password": "$2b$10$1DbEClkKLLwUSa1FBIsLZ.Y.wsGE1CA7B1G/5GJr8CmvawgI7vemS"
+  },
+  {
+    "name": "hof oke",
+    "email": "hofoke3844@mytaemin.com",
+    "password": "$2b$10$I7sV/AGSff2.uWItHI2Lg.w8eCU/1Icqmi6wNbRdhIDgU2zZKFzBS"
+  },
+  {
+    "name": "te xika",
+    "email": "texika1716@lhory.com",
+    "password": "$2b$10$zGj9eD4t5eMCAuMSet/Quu.8EZyS27.NwNjva2ESJnu8GuY6PIBmG"
+  },
+  {
+    "name": "co fiza",
+    "email": "cofixa8571@lhory.com",
+    "password": "$2b$10$ChzCdSbB8nkWc/B7skeut.k99iOoaFfsO8JU5WQclHX65Haa2Nsqi"
+  },
+  {
+    "name": "rk 67",
+    "email": "rk.67@gmail.com",
+    "password": "$2b$10$qVxLqrkGVqGAovC46CsPcOEF7zRR7fnfKkHYhmsE//LkyTuPdN6.q"
+  },
+  {
+    "name": "wo vosse",
+    "email": "wovose6435@luxpolar.com",
+    "password": "$2b$10$KXOUCyONh8zFwLu2p6coUOzZWTWvkgm98C3aLTlcSOFwrKWs1L.C6"
+  }
+]
