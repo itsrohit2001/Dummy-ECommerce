@@ -69,7 +69,7 @@ const CheckoutPage = () => {
     setIsLoading(true);
     try {
       const token = accessToken || localStorage.getItem("accessToken");
-      const res = await fetch("/api/products/place-order", {
+      const res = await fetch(`${API_URL}/api/products/place-order`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -99,7 +99,7 @@ const CheckoutPage = () => {
     setOtp("");
     setOtpLoading(true);
     try {
-      const res = await fetch("/api/user/request-otp", {
+      const res = await fetch(`${API_URL}/api/user/request-otp`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -137,7 +137,7 @@ const CheckoutPage = () => {
     setOtpLoading(true);
     setIsLoading(true);
     try {
-      const res = await fetch("/api/user/verify-otp", {
+      const res = await fetch(`${API_URL}/api/user/verify-otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp }),
