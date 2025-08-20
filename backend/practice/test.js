@@ -339,9 +339,9 @@ const user6 = {
 let name6 =  "rohit"
 
 if(user6.name6){
-  console.log('A')
+  // console.log('A')
 } else {
-  console.log('B');
+  // console.log('B');
   
 }
 
@@ -350,3 +350,23 @@ function expensiveTask(num) {
     // Simulating an expensive task
   }
 }
+// Microtask vs Macrotask demonstration
+
+console.log('A'); // Synchronous, runs first
+
+setTimeout(() => {
+  // Macrotask: scheduled after the current call stack and microtasks
+  // Microtasks (like Promise callbacks) run before macrotasks (like setTimeout)
+  // Microtasks: Promise callbacks, MutationObserver, queueMicrotask
+  // Macrotasks: setTimeout, setInterval, setImmediate, I/O, UI rendering 
+  console.log('B');
+}, 0);
+
+Promise.resolve().then(() => {
+  // Microtask: runs after the current call stack, before macrotasks
+  console.log('C');
+});
+
+console.log('D'); // Synchronous, runs immediately after 'A'
+
+// Output order: A, D, C, B

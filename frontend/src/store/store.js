@@ -31,7 +31,6 @@ const store = configureStore({
     verifyOtp: verifyOtpReducer,
     cart: cartReducer,
     wishlist: wishlistReducer,
-    // ...other reducers
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),

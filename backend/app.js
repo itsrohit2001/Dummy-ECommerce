@@ -4,6 +4,7 @@ const app = express();
 const PORT = 4500;
 const routes = require("./routes");
 const cors = require('cors');
+const connectDB = require('./db');
 
 const allowedOrigin = (process.env.FRONTEND_URL || 'http://localhost:3000').replace(/\/$/, '');
 app.use(cors({
@@ -12,6 +13,9 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
+//connect to database
+connectDB();
 
 app.use((err, req, res, next) => {
   if(err.code === 'ECONNRESET'){
@@ -23,6 +27,7 @@ app.use((err, req, res, next) => {
 });
 
 app.use("/api", routes);
+app.use("/api/users", require("./routes/userRoutes"));
 
 // app.use((req, res, next) => {
 //   console.log(`[${req.method}] ${req.url}`);

@@ -1,4 +1,4 @@
-export const product_data = [
+ const product_data = [
   {
     id: 1,
     name: "Apple iPhone 15 (128 GB) - Blue",
@@ -620,3 +620,5 @@ export const product_data = [
     inStock: true,
   },
 ];
+
+module.exports = { product_data };
