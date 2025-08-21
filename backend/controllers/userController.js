@@ -100,13 +100,16 @@ exports.requestOtp = async (req, res) => {
 };
 
 exports.verifyOtp = async (req, res) => {
-  const { email, otp, deleteOtp = true } = req.body;
+  const { email, otp } = req.body;
   if (!email || !otp) return res.status(400).json({ message: "Email and OTP are required" });
   if (!validateEmail(email)) return res.status(400).json({ message: "Email Address is invalid" });
-  if (!validateOtp(email, otp)) return res.status(400).json({ message: "Invalid or expired OTP" });
-  if (deleteOtp === true || deleteOtp === "true") delete OTP_DATA[email];
-  const accessToken = generateAccessToken({ email });
-  return res.status(200).json({ message: "OTP verified successfully", accessToken });
+
+  const user = await User.findOne({ email });
+  if (!user || user.resetToken !== otp || Date.now() > user.resetTokenExpiry) {
+    return res.status(400).json({ message: "Invalid or expired OTP" });
+  }
+
+  return res.status(200).json({ message: "OTP verified successfully" });
 };
 
 exports.forgotPassword = async (req, res) => {
@@ -115,7 +118,9 @@ exports.forgotPassword = async (req, res) => {
   const user = await User.findOne({ email });
   if (!user) return res.status(404).json({ message: "User not found" });
   const otp = generateOTP();
-  OTP_DATA[email] = { otp, createdAt: Date.now(), retryCount: 0 };
+  user.resetToken = otp;
+  user.resetTokenExpiry = Date.now() + OTP_EXPIRY;
+  await user.save();
   // Send OTP email
   const htmlContent = `<div>OTP for Password Reset: <b>${otp}</b></div>`;
   const response = await sendMail(email, "Password Reset Request", htmlContent);
@@ -131,11 +136,15 @@ exports.resetPassword = async (req, res) => {
   if (!email || !otp || !password) return res.status(400).json({ message: "Email, OTP, and new password are required" });
   if (!validateEmail(email)) return res.status(400).json({ message: "Email address is invalid" });
   if (password.length < 6) return res.status(400).json({ message: "Password must be at least 6 characters" });
-  if (!validateOtp(email, otp)) return res.status(400).json({ message: "Invalid or expired OTP" });
+
   const user = await User.findOne({ email });
-  if (!user) return res.status(404).json({ message: "User not found" });
+  if (!user || user.resetToken !== otp || Date.now() > user.resetTokenExpiry) {
+    return res.status(400).json({ message: "Invalid or expired OTP" });
+  }
+
   user.password = generateHash(password);
+  user.resetToken = undefined;
+  user.resetTokenExpiry = undefined;
   await user.save();
-  delete OTP_DATA[email];
   return res.json({ message: "Password reset successful" });
 };

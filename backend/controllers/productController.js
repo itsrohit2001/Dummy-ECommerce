@@ -1,4 +1,6 @@
 const Product = require('../models/productModel');
+const Order = require('../models/orderModel');
+const User = require('../models/userModel');
 const { verifyAccessToken } = require('../utils/sessionManager');
 
 // GET /api/products
@@ -46,9 +48,34 @@ exports.placeOrder = async (req, res) => {
   const accessToken = req.headers.authorization?.split(" ")[1];
   if (!accessToken) return res.status(401).json({ message: "unauthorised" });
   const user = verifyAccessToken(accessToken);
+
   if (!user) return res.status(401).json({ message: "unauthorised" });
   const { cartItems, address } = req.body;
-  // Store order info as a subdocument in Product (or you can create a separate Order collection if needed)
-  // Here, just acknowledge the order
+
+  if (!cartItems || !address) {
+    return res.status(400).json({ message: "Cart items and address are required" });
+  }
+
+   // Find user document to get ObjectId
+  const userDoc = await User.findOne({ email: user.email });
+  if (!userDoc) return res.status(401).json({ message: "User not found" });
+
+  // Map cartItems to order items
+  const orderItems = cartItems.map(item => ({
+    product: item._id || item.id,
+    quantity: item.quantity || 1,
+    price: item.price
+  }));
+
+  const order = new Order({
+    user: userDoc._id,
+    items: orderItems,
+    address: address,
+    status: "Ordered",
+    orderDate: new Date(),
+  });
+
+  await order.save();
+  
   return res.status(201).json({ message: "Order Placed Successfully" });
 };

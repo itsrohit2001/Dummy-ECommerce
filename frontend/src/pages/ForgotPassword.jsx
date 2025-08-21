@@ -47,30 +47,29 @@ const ForgotPassword = () => {
     }
   };
 
-   const handleOtpSubmit = async (e) => {
-    e.preventDefault();
-    setOtpLoading(true);
-    setToast({ message: "", success: false });
-    try {
-      const res = await fetch(`${API_URL}/api/user/verify-otp`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, otp,  deleteOtp: false }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        // Redirect to create new password page, e.g. /create-new-password?email=...&otp=...
-        window.location.href = `/create-new-password?email=${encodeURIComponent(email)}&otp=${encodeURIComponent(otp)}`;
-        setToast({ message: "OTP verified! Redirecting to reset password page...", success: true });
-      } else {
-        setToast({ message: data.message || "Invalid OTP.", success: false });
-      }
-    } catch {
-      setToast({ message: "Something went wrong. Please try again.", success: false });
-    } finally {
-      setOtpLoading(false);
+  const handleOtpSubmit = async (e) => {
+  e.preventDefault();
+  setOtpLoading(true);
+  setToast({ message: "", success: false });
+  try {
+    const res = await fetch(`${API_URL}/api/user/verify-otp`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, otp }),
+    });
+    const data = await res.json();
+    if (res.ok) {
+      window.location.href = `/create-new-password?email=${encodeURIComponent(email)}&otp=${encodeURIComponent(otp)}`;
+      setToast({ message: "OTP verified! Redirecting to reset password page...", success: true });
+    } else {
+      setToast({ message: data.message || "Invalid OTP.", success: false });
     }
-  };
+  } catch {
+    setToast({ message: "Something went wrong. Please try again.", success: false });
+  } finally {
+    setOtpLoading(false);
+  }
+};
 
   return (
    <div className="flex items-center justify-center py-8 bg-gradient-to-br from-blue-200 via-purple-100 to-pink-200">
