@@ -28,6 +28,7 @@ app.use((err, req, res, next) => {
 
 app.use("/api", routes);
 app.use("/api/user", require("./routes/userRoutes"));
+app.use("/api/products", require("./routes/productRoutes"));
 
 // app.use((req, res, next) => {
 //   console.log(`[${req.method}] ${req.url}`);

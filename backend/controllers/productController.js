@@ -10,7 +10,11 @@ exports.getAllProducts = async (req, res) => {
   const category = req.query.category || "";
   const brand = req.query.brand || "";
 
-  if (id) {
+  if (id && id !== "undefined") {
+    // Validate ObjectId format
+    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+      return res.status(400).json({ message: "Invalid product ID" });
+    }
     const product = await Product.findById(id);
     if (product) return res.json(product);
     return res.status(404).json({ message: "Product not found" });

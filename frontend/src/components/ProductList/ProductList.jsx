@@ -78,7 +78,7 @@ export const ProductListUI = ({ products }) => {
             >
               {products.slice(startIdx, endIdx).map((product) => (
                 <Link
-                  to={`/products/${product.id}`}
+                  to={`/products/${product._id}`}
                   className="no-underline"
                   key={product.id}
                 >
