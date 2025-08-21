@@ -27,7 +27,7 @@ app.use((err, req, res, next) => {
 });
 
 app.use("/api", routes);
-app.use("/api/users", require("./routes/userRoutes"));
+app.use("/api/user", require("./routes/userRoutes"));
 
 // app.use((req, res, next) => {
 //   console.log(`[${req.method}] ${req.url}`);
