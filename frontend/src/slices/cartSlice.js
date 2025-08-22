@@ -10,7 +10,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCart(state, action) {
       const item = action.payload;
-      const existing = state.cartItems.find(i => i.id === item.id);
+      const existing = state.cartItems.find(i => i._id === item._id);
       if (existing) {
         existing.quantity += item.quantity || 1;
       } else {
@@ -19,12 +19,12 @@ const cartSlice = createSlice({
       localStorage.setItem("cart", JSON.stringify(state.cartItems));
     },
     removeFromCart(state, action) {
-      state.cartItems = state.cartItems.filter(i => i.id !== action.payload);
+      state.cartItems = state.cartItems.filter(i => i._id !== action.payload);
       localStorage.setItem("cart", JSON.stringify(state.cartItems));
     },
     updateQuantity(state, action) {
-      const { id, qty } = action.payload;
-      const item = state.cartItems.find(i => i.id === id);
+      const { _id, qty } = action.payload;
+      const item = state.cartItems.find(i => i._id === _id);
       if (item) item.quantity = Math.max(1, qty);
       localStorage.setItem("cart", JSON.stringify(state.cartItems));
     },

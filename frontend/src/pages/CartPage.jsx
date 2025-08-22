@@ -42,7 +42,7 @@ const CartPage = () => {
         <div>
           {cartItems.map((item) => (
             <div
-              key={item.id}
+              key={item._id}
               className="flex flex-col items-center gap-6 py-6 border-b border-blue-100 sm:flex-row last:border-b-0 hover:bg-blue-50/40 rounded-xl"
             >
               <img
@@ -56,7 +56,7 @@ const CartPage = () => {
                 <div className="flex items-center gap-2 mt-3">
                   <button
                     className="px-3 py-1 font-bold text-blue-700 rounded-full bg-gradient-to-r from-blue-200 to-purple-200 hover:from-blue-300 hover:to-purple-300"
-                    onClick={() => dispatch(updateQuantity(item.id, (item.quantity || 1) - 1))}
+                    onClick={() => dispatch(updateQuantity({ _id: item._id, qty: (item.quantity || 1) - 1 }))}
                     disabled={item.quantity <= 1}
                   >
                     -
@@ -66,7 +66,7 @@ const CartPage = () => {
                   </span>
                   <button
                     className="px-3 py-1 font-bold text-blue-700 rounded-full bg-gradient-to-r from-blue-200 to-purple-200 hover:from-blue-300 hover:to-purple-300"
-                    onClick={() => dispatch(updateQuantity(item.id, (item.quantity || 1) + 1))}
+                    onClick={() => dispatch(updateQuantity({ _id: item._id, qty: (item.quantity || 1) + 1 }))}
                   >
                     +
                   </button>
@@ -77,7 +77,7 @@ const CartPage = () => {
               </div>
               <button
                 className="mt-4 ml-0 font-semibold text-red-500 sm:ml-4 hover:text-red-700 sm:mt-0"
-                onClick={() => dispatch(removeFromCart(item.id))}
+                onClick={() => dispatch(removeFromCart(item._id))}
               >
                 Remove
               </button>
